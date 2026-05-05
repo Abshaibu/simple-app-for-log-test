@@ -1,16 +1,19 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function ResetPassword() {
-  const [status, setStatus] = useState('Calling endpoint...');
+  const [status, setStatus] = useState("Calling endpoint...");
 
   useEffect(() => {
-    fetch('http://localhost:4000/reset-password', {
-      method: 'POST',
+    fetch("https://uppity-wilderness.pipeops.app/reset-password", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: 'test@example.com', newPassword: 'newpassword123' }),
+      body: JSON.stringify({
+        email: "test@example.com",
+        newPassword: "newpassword123",
+      }),
     })
       .then((res) => res.json())
       .then((data) => setStatus(`Success: ${data.message}`))
@@ -18,10 +21,12 @@ export default function ResetPassword() {
   }, []);
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>Reset Password Test Page</h1>
       <p>Status: {status}</p>
-      <a href="/" style={{ color: 'blue', textDecoration: 'underline' }}>Back to Home</a>
+      <a href="/" style={{ color: "blue", textDecoration: "underline" }}>
+        Back to Home
+      </a>
     </div>
   );
 }

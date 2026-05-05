@@ -1,16 +1,17 @@
 "use client";
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function OTP() {
-  const [status, setStatus] = useState('Calling endpoint...');
+  const [status, setStatus] = useState("Calling endpoint...");
 
   useEffect(() => {
-    fetch('http://localhost:4000/otp', {
-      method: 'POST',
+    fetch("https://uppity-wilderness.pipeops.app/otp", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: 'test@example.com', otp: '123456' }),
+      body: JSON.stringify({ email: "test@example.com", otp: "123456" }),
     })
       .then((res) => res.json())
       .then((data) => setStatus(`Success: ${data.message}`))
@@ -18,10 +19,12 @@ export default function OTP() {
   }, []);
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>OTP Test Page</h1>
       <p>Status: {status}</p>
-      <a href="/" style={{ color: 'blue', textDecoration: 'underline' }}>Back to Home</a>
+      <Link href="/" style={{ color: "blue", textDecoration: "underline" }}>
+        Back to Home
+      </Link>
     </div>
   );
 }

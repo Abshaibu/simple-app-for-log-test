@@ -18,7 +18,7 @@ COPY . .
 RUN mkdir -p ./public
 
 # Environment variable that should be available at build time
-ENV NEXT_PUBLIC_BACKEND_URL=http://localhost:4000
+ENV NEXT_PUBLIC_BACKEND_URL=https://uppity-wilderness.pipeops.app
 RUN npm run build
 
 # Production image, copy all the files and run next
