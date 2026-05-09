@@ -1,2 +1,2 @@
-# simple-app-for-log-test!
+# simple-app-for-log-test
 Test.
